@@ -1,0 +1,70 @@
+
+.hero{
+    background-color: rgb(27, 35, 66);
+    margin-bottom: 50px;
+}
+
+.page-title{
+    padding-top: 50px;
+    padding-bottom: 5px;
+}
+
+.card-row{
+    align-items: center;
+}
+
+#introduction-heading{
+    padding-top: 20px;
+}
+
+#key-points-heading{
+    margin-bottom: 20px;
+}
+
+.key-points{
+    list-style: none;
+    font-size: 18px;
+}
+
+.positives li{
+    background-image: url('./img/up_arrow.png');
+    background-repeat: no-repeat;
+    line-height: 30px;
+    padding-left: 40px;
+    padding-bottom: 10px;
+}
+
+.negatives li{
+    background-image: url('./img/down_arrow.png');
+    background-repeat: no-repeat;
+    line-height: 30px;
+    padding-left: 40px;
+    padding-bottom: 10px;
+}
+
+
+
+@media (max-width: 992px){
+
+    .hero-img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-text{
+        text-align: center;
+    }
+
+    .hero-buttons{
+        display: flex;
+        justify-content: center;
+    }
+    
+}
+
+@media (max-width: 767px){
+    .card-body{
+        text-align: center;  
+    }
+}

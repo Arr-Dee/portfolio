@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block main %}
+
+<div class="hero">
+    <div class="container">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6 hero-img">
+                <img src="./static/img/programming_svg.svg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"
+                    height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6 text-light hero-text">
+                <h1 class="display-5 fw-bold lh-1 mb-3">Russel Dodds</h1>
+                <p class="lead">
+                    Data Engineering professional, with a passion for programming and developing applications from the
+                    ground up.
+                </p>
+                <div class="gap-2 d-md-flex hero-buttons">
+                    <a href="/cv">
+                       <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">CV</button> 
+                    </a>
+                    <a href="https://github.com/Arr-Dee" target="_blank" rel="noopener noreferrer">
+                        <button type="button" class="btn btn-outline-secondary btn-lg px-4">GitHub</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container mb-3">
+    <div class="row justify-content-md-center text-start">
+        <div class="col col-xl-6">
+            <h1>Welcome</h1>
+            <p>
+                I put together this site as a passion project. I have been interested in programming and and software engineering/development
+                for years, therefore I thought it was about time to take action and put my skills to the test.
+            </p>
+            <p>
+                Additionally, I wanted to use this site to document my process and thinking when creating these
+                applications. Hopefully, you, the reader, will be able to gain a deeper appreciation and understanding of my process, but
+                personally I want to track how I tackle different projects and use this space to record my
+                strengths/weakenesses, lessons learnt and areas to focus on next time.
+            </p>
+            <p>
+                I plan to develop more projects in the future, so please make sure to check back in again.
+                For now, please check out some of current projects below.
+            </p>
+            <p>
+                Thank you - Russel
+            </p>
+        </div>
+        <div class="col-md-4 justify-content-md-center">
+            <img src="./static/img/me_bw.png" alt="profile_picture" class="img-fluid rounded mx-auto d-block">
+        </div>
+    </div>
+</div>
+
+
+<div class="container mb-3">
+    <div class="row justify-content-md-center text-start">
+        <div class="col col-xl-10 mb-3">
+            <h1>Projects</h1>
+        </div>
+    </div>
+    {% include 'projects_component.html' %}
+</div>
+{% endblock %}

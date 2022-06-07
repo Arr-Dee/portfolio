@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Projects
+{% endblock %}
+
+{% block main %}
+
+<div class="container text-start">
+    <h2 class="page-title">Projects</h2>
+
+    <p>
+        Below you will find a list of my current and completed projects. I plan to develop more projects in the future, and as such I want to be able measure my progress
+        to see how my skills are improving. Therefore, I plan to add detailed write-ups of my projects to not only remind myself of how I went about developing such application,
+        but to also inform you, the reader, of how I think and approach the various different challenges these projects present.
+    </p>
+    <h3>Completed</h3>
+    {% include 'projects_component.html' %}
+    <h3>In Progress</h3>
+
+    <div class="row justify-content-md-center text-start">
+        <div class="card mb-3 text-start px-0" style="max-width: 820px; min-height: 250px;">
+            <div class="row g-0 card-row">
+                <div class="col-md-4">
+                    <img src=".\static\img\in_progress.png" class="img-fluid rounded-start" alt="..." style="height: 100%;">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body py-4">
+                        <h5 class="card-title">Spotify API</h5>
+                        <p class="card-text">
+                            Currently, planning to use the Spotify and perhaps some AI to create personalised suggestions for users.
+                        </p>
+                        <a href="#" class="btn btn-secondary disabled" role="button">In progress</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Ideas for the Future</h3>
+    <ul>
+        <li>Nutritional/food alternatives app</li>
+    </ul>
+</div>
+{% endblock %}

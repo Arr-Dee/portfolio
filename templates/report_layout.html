@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{ name }} Report
+{% endblock %}
+
+{% block main %}
+
+<div class="container text-start">
+    <h2 class="page-title">{% block report_title %}{% endblock %}  <a href={% block link %}{% endblock %} target="_blank"><span class="badge bg-secondary">Link</span></a></h2>
+    {% block tags %}{% endblock %}
+    <h4 id="introduction-heading">Introduction</h4>
+    <p>
+        {% block introduction %}{% endblock %}
+    </p>
+    <h4>Methodology</h4>
+    <p>
+        {% block methodology %}{% endblock %}
+    </p>
+    <h4>Discussion</h4>
+    <p>
+        {% block discussion %}{% endblock %}
+    </p>
+
+    <h4>Conclusions</h4>
+    <p>
+        {% block conclusions %}{% endblock %}
+    </p>
+
+    <h4 id="key-points-heading">Key Points</h4>
+    {% block review %}{% endblock %}
+</div>
+{% endblock %}

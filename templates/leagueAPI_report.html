@@ -1,0 +1,110 @@
+{% extends "report_layout.html" %}
+
+{% block title %}
+{{ name }} Report
+{% endblock %}
+
+{% block report_title %}League of Legends API{% endblock %}
+{% block link %}"http://league-api-project.herokuapp.com/"{% endblock %}
+
+{% block tags %}
+<!-- for loop over tags -->
+<span class="badge rounded-pill bg-primary">Python (Flask)</span>
+<span class="badge rounded-pill bg-primary">Jinja</span>
+<span class="badge rounded-pill bg-primary">HTML/CSS/JS</span>
+<span class="badge rounded-pill bg-primary">SQLite</span>
+<span class="badge rounded-pill bg-primary">Heroku</span>
+{% endblock %}
+
+{% block introduction %}
+<p>
+    League of Legends is one of the world's most popular video games, developed by Riot Games. It features a team-based competitive game mode based on strategy and outplaying opponents.
+    The game is one that is popular amoung my friends and I, and with a strong knowledge of how the game works and an awareness of the key data and statistics that drive competitive performance
+    I thought this would be the ideal first project to get stuck into.
+</p>
+<p>
+    The project plan was to design and develop a web application that allowed users to search the match histories of any account, and provide an overview of the account's performance in the last 25 matches.
+    Having an overview with key statistics would allow a user to quickly view their performance, and compare this with their friends or other professional League of Legends players, to see how they stack up.
+    Furthermore, a feature to view individual stats of each match will be available to additionally allow the user to track their performance against their team and the enemy team on a match-by-match basis.
+</p>
+{% endblock %}
+
+{% block methodology %}
+<p>
+    Prior to building this web application, I had first done a proof on concept using Matlab, a language I am very confortable in, from my Data Engineering role at BAE Systems. This initial concept utilised the Riot Games API
+    and allowed me to gain a better understanding of how to interact and extract the necessary data.
+</p>
+<p>
+    Once I was more comfortable with Python, and had spent some time developing in Flask, I decided to move the project from Matlab to Python.
+    With my experience of using APIs, specifically the Riot Games API, I was quickly able to replicate my previous work, this time taking more time to functionalise
+    the API requests, implementing rate limiters, and error checks to increase stability.
+</p>
+<p>
+    As mentioned before, the application backend was developed in Flask, with SQLite used to act as a database. The frontend used HTML, alongside Jinja
+    to interface with Flask in the backend. Bootstrap was used to streamline the styling of the page to allow me to focus on the actual functionality of the application. 
+</p>
+{% endblock %}
+
+{% block discussion %}
+<h5>Rate Limits</h5>
+<p>
+    The rate limits imposed on the Riot Games API are very restricted, hence I needed a way to minimise rate calls, and avoid timeouts due to excessive requests.
+    The first way was to impose rate limits within the functions that called the API, however this only solves half the problem, as more users would results in more calls
+    and inevitably a breach of the limit, slowing down the application for all users.
+</p>
+<p>
+    Diagram of the match ID, match Data setup.
+</p>
+<p>
+    Therefore, I wanted to utilise a database (SQLite in this case) to store as much data from any API requests, such as match IDs/match data. Match IDs are universal identifiers for every match played on
+    the League of Legends server, and are used in a separate API request to access that match's game data. As I often play with my friends, we would ultimately have a large number 
+    of match IDs in common, and therefore there is no need to fetch the same data from the same match ID multiple times. Hence, the database would store any previouisly
+    requested data, removing the need for additional API requests, and ultimately increase throughput to the API.
+</p>
+<h5>Future-proofing</h5>
+<p>
+    At the end of the day, any application that requires regular maintenance, or any form of continuous updates, is going to take a considered effort to maintain.
+    League of Legends is constantly changing game, with updates every 2 weeks. These updates can add or change a whole selection of gameplay related assets, such as
+    characters (or champions as they are known in-game), items and spells/abilities, which in turn can add or change icons and descriptions within the game.
+</p>
+<p>
+    Therefore, a key feature I wanted to incorporate into this application was the removal of any need to update/redeploy the app when changes to the game are made.
+    Luckily, Riot Games has various content sources which they update around the same time as the in-game updates, which I was able to reference and then
+    follow once a new update was published. You can see the current update my application is running at the bottom of the screen.
+</p>
+<h5>User Acceptance Testing</h5>
+<p>
+    At the end inital development, I ran some testing with a few of my friends. I asked them to explore the site freely. I decided not to provide instruction, as I wanted
+    the website to self-explanatory, and their ability to interact with it without guidance would show an element of ease of use and user friendliness. The testing reported back
+    some minor grammatical error, as well as issues with the corrent font appearing - caused by the HTTPS protocols blocking the third-party font from loading. It was noted by one user
+    that it was unclear that clicking on an individual match would present additonal details, therefore there is some scope to improve the User Interface to indicate this additional
+    feature is present.
+</p>
+{% endblock %}
+
+{% block conclusions %}
+<p>
+    In conclusion, I am happy with the outcome of this first project. I was able to achieve my main goals of developing a web application using Python, whilst also building my experience
+    with APIs. Additionally, I was able to gain better understanding of databases, specifically SQL and SQLite, and how they are leveraged for web applications. Feedback from the testing proved
+    the site was stable with multiple users, across multiple browsers and on both mobile and desktop. A key area of improvement I identified after testing is that I would replace the SQLite database
+     with a PostgreSQL database, as when the web application is switched off by the Heroku server for inactivity, all data is erased. Therefore, repeat users wouldn't experience a performance 
+     increase when searching for their data, as that data would need to be fetched all over again.
+</p>
+
+{% endblock %}
+
+{% block review %}
+<ul class="key-points">
+    <div class="positives">
+        <li>Successfuly implemented an API to fetch and present key data to users.</li>
+        <li>Deployed, for the first time, using Heroku as a hosting service.</li>
+        <li>Implemented a database (SQLite) to optimise performance.</li>
+    </div>
+    <div class="negatives">
+        <li>Determined SQLite lacked capabilites, and next time would use PostgreSQL to maintain data longterm.</li>
+        <li>Not quite happy with final aesthetics of the site, but wanted to maintain minimalist approach, whilst focusing on functionality.</li>
+    </div>
+</ul>
+
+{% endblock %}
+</div>
