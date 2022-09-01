@@ -29,8 +29,8 @@ def report(name):
     match name:
         case "League API":
             return render_template("leagueAPI_report.html", name=name)
-        case "Boulderworld":
-            return render_template("boulderworld_report.html", name=name)
+        case "TopOut":
+            return render_template("topout_report.html", name=name)
         case _:
             return
 
